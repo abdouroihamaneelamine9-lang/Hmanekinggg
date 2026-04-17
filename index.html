@@ -230,10 +230,10 @@ const BLOCKS = [
 "19:50–23:00"
 ];
 
-const STATE_KEY = "routine_state";
-const EMOJI_KEY = "routine_emojis";
-const SCORE_KEY = "routine_score";
-const NOTES_KEY = "routine_notes";
+const STATE_KEY = "sport_state";
+const EMOJI_KEY = "sport_emojis";
+const SCORE_KEY = "sport_score";
+const NOTES_KEY = "sport_notes";
 
 /* STORAGE */
 function load(key, fallback){
@@ -301,7 +301,7 @@ function resetAll(){
 
 /* BLOCKS */
 function getActiveBlocks(){
-    const custom = load("routine_blocks_custom", null);
+    const custom = load("sport_blocks_custom", null);
     return custom || BLOCKS;
 }
 
