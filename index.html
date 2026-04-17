@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#f4f4f4">
+    <link rel="manifest" href="./manifest.json">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Sport</title>
@@ -167,9 +166,6 @@
 </div>
 
 <script>
-    if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
-}
 
 const DEFAULT_NOTES_BY_BLOCK = {
     "05:00–09:00": [
@@ -230,10 +226,10 @@ const BLOCKS = [
 "19:50–23:00"
 ];
 
-const STATE_KEY = "sport_state";
-const EMOJI_KEY = "sport_emojis";
-const SCORE_KEY = "sport_score";
-const NOTES_KEY = "sport_notes";
+const STATE_KEY = "routine_state";
+const EMOJI_KEY = "routine_emojis";
+const SCORE_KEY = "routine_score";
+const NOTES_KEY = "routine_notes";
 
 /* STORAGE */
 function load(key, fallback){
@@ -301,7 +297,7 @@ function resetAll(){
 
 /* BLOCKS */
 function getActiveBlocks(){
-    const custom = load("sport_blocks_custom", null);
+    const custom = load("routine_blocks_custom", null);
     return custom || BLOCKS;
 }
 
@@ -432,6 +428,10 @@ function render(){
 }
 
 render();
+
+navigator.serviceWorker.register("service-worker.js", {
+    scope: "./"
+});
 
 </script>
 
